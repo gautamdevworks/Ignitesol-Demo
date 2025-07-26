@@ -131,8 +131,8 @@ Once you capture and save images there they’ll appear inline below.
 
 | Mobile |  |
 |--------|--|
-|  <td><img src="docs/desktop_book_page.png"  width="250"/></td>
-|  <td><img src="docs/desktop_book_screen.png"  width="250"/></td>
-|  <td><img src="docs/desktop_category_screen.png"  width="250"/></td>
+|  <td><img src="docs/mobile_book_page.png"  width="250"/></td>
+|  <td><img src="docs/mobile_book_screen.png"  width="250"/></td>
+|  <td><img src="docs/mobile_category_screen.png"  width="250"/></td>
 
 > Replace the placeholder file names with your actual PNG/JPEGs to see them rendered here.
