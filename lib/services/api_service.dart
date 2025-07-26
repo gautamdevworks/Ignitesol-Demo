@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:ignitesol_demo/model/book_model.dart';
 
 
 class ApiService {
@@ -102,5 +103,36 @@ class ApiService {
       options: options,
       cancelToken: cancelToken,
     );
+  }
+
+  
+  Future<List<Book>> fetchBooks({
+    required String topic,
+    String? searchQuery,
+    String? nextUrl,
+  }) async {
+    Response<dynamic> response;
+
+    if (nextUrl != null && nextUrl.isNotEmpty) {
+      // The API returns absolute URLs for pagination; hit them directly.
+      response = await _dio.getUri(Uri.parse(nextUrl));
+    } else {
+      response = await getRequest('/books', queryParameters: {
+        'topic': topic,
+        'mime_type': 'image/',
+        if (searchQuery != null && searchQuery.isNotEmpty) 'search': searchQuery,
+      });
+    }
+
+    if (response.statusCode == 200) {
+      final data = response.data as Map<String, dynamic>;
+      final results = data['results'] as List<dynamic>;
+      return results
+          .map((json) => Book.fromJson(json as Map<String, dynamic>))
+          .toList();
+    }
+
+    // For non-200 responses, throw a generic exception.
+    throw Exception('Failed to load books');
   }
 } 

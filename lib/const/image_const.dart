@@ -1,5 +1,5 @@
 class ImageConst {
-  static const String imgBase = '';
+  static const String imgBase = 'assets/images';
   static const String adventure = '$imgBase/Adventure.svg';
   static const String back = '$imgBase/Back.svg';
   static const String cancel = '$imgBase/Cancel.svg';

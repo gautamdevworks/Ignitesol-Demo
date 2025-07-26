@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ignitesol_demo/const/color_const.dart';
 import 'package:ignitesol_demo/const/image_const.dart';
+import 'package:ignitesol_demo/presentation/books/book_screen.dart';
 
 class CategoryTile extends StatelessWidget {
     final String iconAsset;
@@ -23,7 +24,9 @@ class CategoryTile extends StatelessWidget {
     final theme = Theme.of(context);
 
     return InkWell(
-      onTap: onTap,
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => BookScreen(topic: title,)));
+      },
       borderRadius: BorderRadius.circular(4),
       child: Container(
         height: 50,
